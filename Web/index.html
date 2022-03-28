@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+	  <link rel="stylesheet" href="style.css">
+	  <meta charset="utf-8">
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <title>Interpolated rendering</title>
+	</head>
+	<body>
+		<canvas id='mycanvas' width='500' height='500'></canvas>
+		<p>
+			<input type="checkbox" name="interpolation"  id="interpolation"/> 
+			<label for='interpolation'>¿Interpolated render?</label>
+			<input id='time_updates' name='time_updates' type='range' step='1' min='1' max='60'value='8' style='width: 300px;'/>
+		</p>
+
+		<p>
+			<label for='time_updates'>Updates per second(</label><span id="updates_per_second">8</span>)
+		</p>
+		<p>
+			Time between updates <span id="second_between_updates">0.125</span>s
+		</p>
+		
+		<script src="index.js"></script>
+	</body>
+</html>

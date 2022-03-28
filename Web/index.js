@@ -45,10 +45,11 @@ class MyCircle
     //Comprobamos que no se salga de los límites
     if(this.PointActual.y<=0 && this.Velocity.y<0)
     {
-		this.PointActual.y=0; this.Velocity.y*=-1;
+		//this.PointActual.y=0; 
+		this.Velocity.y*=-1;
     }else if(this.PointActual.y>=(HEIGHT_CANVAS-this.Dimensions.height)&& this.Velocity.y>0) 
     {    
-		this.PointActual.y=(HEIGHT_CANVAS-this.Dimensions.height);
+		//this.PointActual.y=(HEIGHT_CANVAS-this.Dimensions.height);
 		this.Velocity.y*=-1;
 	}
 
@@ -56,10 +57,11 @@ class MyCircle
     //Comprobamos que no se salga de los límites
     if(this.PointActual.x<=0 && this.Velocity.x<0)
     {
-		this.PointActual.x=0; this.Velocity.x*=-1;
+		//this.PointActual.x=0; 
+		this.Velocity.x*=-1;
     }else if(this.PointActual.x>=(WIDTH_CANVAS-this.Dimensions.width) && this.Velocity.x>0) 
     {    
-		this.PointActual.x=(WIDTH_CANVAS-this.Dimensions.width);
+		//this.PointActual.x=(WIDTH_CANVAS-this.Dimensions.width);
 		this.Velocity.x*=-1;						
 	}
   }				
@@ -70,7 +72,7 @@ function GenerateRandom(min, max)
   return Math.random()*(max-min)+min;
 }			
 
-var minVel=0, maxVel=100;
+const minVel=-100, maxVel=100;
 
 var Circles=[
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'yellow'), 
@@ -132,5 +134,37 @@ function Gameloop()
   setTimeout(Gameloop, 0);
 }			
 Gameloop();	
+
+document.body.onkeydown = function(event)
+{
+	switch(event.which)
+	{
+		case 107: // + Numpad
+		case 187: // +
+		case 39: // Right Key
+		case 38: // Up Key
+			if(updatesInput.value*1<updatesInput.max*1)
+				updatesInput.value++;
+			break;
+			
+		case 109: // - Numpad
+		case 189: // -
+		case 40: // Left Key
+		case 37: // Down Key
+			if(updatesInput.value>updatesInput.min*1)
+				updatesInput.value--;
+		
+			break;
+		
+		case 32: // Space
+		case 73: // I
+			interpolationInput.checked=!interpolationInput.checked;
+			break;
+			
+			
+			
+			
+	}
+};
 
 //Creado por juanpomares  ¯\_(ツ)_/¯

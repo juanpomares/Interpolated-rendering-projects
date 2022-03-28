@@ -9,6 +9,13 @@ const updatesBetweenSpan=document.getElementById('second_between_updates');
 const WIDTH_CANVAS=500;
 const HEIGHT_CANVAS=500;
 
+function drawRect(color, pointX, pointY, width, height)
+{	
+    context.fillStyle=color;
+    context.fillRect(pointX, pointY, width, height);
+}
+
+
 class MyCircle
 {
   constructor(x, y, width, height, velx, vely, color)
@@ -30,8 +37,7 @@ class MyCircle
     let renderX=percent*this.PointActual.x+(1-percent)*this.PointAnterior.x;
     let renderY=percent*this.PointActual.y+(1-percent)*this.PointAnterior.y;
 
-    context.fillStyle=this.color;
-    context.fillRect(renderX,renderY, this.Dimensions.width,this.Dimensions.height);
+    drawRect(this.color, renderX,renderY, this.Dimensions.width,this.Dimensions.height);
   }
 
   Update(deltaTime)
@@ -80,12 +86,18 @@ var Circles=[
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'orange'), 
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel),  'black'), 
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel),  'blue'),
-
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel),  'pink'), 
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'purple'), 
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'red'), 
   new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'aquamarine'), 
-  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'grey')
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'grey'),
+  
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'lime'),
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'maroon'),
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'navy'),
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'fuchsia'),
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'lightpink'),
+  new MyCircle(WIDTH_CANVAS/2, HEIGHT_CANVAS/2, GenerateRandom(25, 50), GenerateRandom(25, 50), GenerateRandom(minVel, maxVel), GenerateRandom(minVel, maxVel), 'olive')
 ];
 
 var cantCircles=Circles.length;
@@ -96,7 +108,7 @@ function Update(deltaTime)
   interpolate=interpolationInput.checked;
   time_for_update=1/(updatesInput.value*1);
   updates_per_second.innerHTML=updatesInput.value;
-  updatesBetweenSpan.innerHTML=time_for_update.toFixed(5);
+  updatesBetweenSpan.innerHTML=(time_for_update*1000).toFixed(2);
   for(let i=0; i<cantCircles; i++)
     Circles[i].Update(deltaTime);
 }
@@ -107,7 +119,10 @@ function Render(percent)
   if(percent<0)percent=0;
   else if(percent>1) percent=1;
 
-  context.clearRect(0, 0, WIDTH_CANVAS, HEIGHT_CANVAS);
+  //context.clearRect(0, 0, WIDTH_CANVAS, HEIGHT_CANVAS);
+  
+   drawRect("white", 0, 0, WIDTH_CANVAS, HEIGHT_CANVAS);
+	
   for(let i=0; i<cantCircles; i++)
     Circles[i].Render(percent);			
 }			
@@ -158,6 +173,7 @@ document.body.onkeydown = function(event)
 		
 		case 32: // Space
 		case 73: // I
+		case 13: // Enter
 			interpolationInput.checked=!interpolationInput.checked;
 			break;
 			

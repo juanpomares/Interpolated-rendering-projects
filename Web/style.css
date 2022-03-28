@@ -1,2 +1,24 @@
-#mycanvas{width: 500px; height: 500px; border: solid 1px black;}
-body{text-align: center;}
+body
+{
+	text-align: center; background-color: #eee;
+font-family: Consolas, monaco, monospace;
+	
+}
+
+#mycanvas{width: 500px; height: 500px;}
+#controls, #mycanvas
+{
+	border: solid 5px grey; border-radius: 5px;
+	background-color: white;
+}
+
+#controls p
+{
+	width: auto;
+}
+
+#controls
+{
+	width: 20em;
+    margin: 1em auto;
+}

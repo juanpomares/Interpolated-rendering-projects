@@ -7,7 +7,7 @@ const updatesSpan=document.getElementById('updates_per_second');
 const updatesBetweenSpan=document.getElementById('second_between_updates');
 
 const WIDTH_CANVAS=500;
-const HEIGHT_CANVAS=500;
+const HEIGHT_CANVAS=250;
 
 function drawRect(color, pointX, pointY, width, height)
 {	

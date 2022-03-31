@@ -11,13 +11,13 @@ import javax.swing.SwingConstants;
 public class Main extends KeyAdapter
 {
 	public static final int WIDTH_WINDOW=500;
-	public static final int HEIGHT_WINDOW=530;
+	public static final int HEIGHT_WINDOW=280;
 	public static final int MIN_UPDATES=1;
 	public static final int MAX_UPDATES=60;
     private static double OneSec=1000.000000000;
 
 	public static int WIDTH_CANVAS=500;
-	public static int HEIGHT_CANVAS=530;
+	public static int HEIGHT_CANVAS=200;
 	
 	private JFrame frame;
 	private MiPanel panel;

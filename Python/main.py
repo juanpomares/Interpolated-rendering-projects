@@ -5,8 +5,8 @@ import time
 
 from pygame import KEYDOWN
 
-interpolate = True
-HEIGHT_CANVAS = 500
+interpolate = False
+HEIGHT_CANVAS = 250
 WIDTH_CANVAS = 500
 
 UPDATES_PER_SECOND = 8

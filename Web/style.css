@@ -5,7 +5,7 @@ font-family: Consolas, monaco, monospace;
 	
 }
 
-#mycanvas{width: 500px; height: 500px;}
+#mycanvas{width: 500px; height: 250px; margin: 0.5em;}
 #controls, #mycanvas
 {
 	border: solid 5px grey; border-radius: 5px;
@@ -20,5 +20,5 @@ font-family: Consolas, monaco, monospace;
 #controls
 {
 	width: 20em;
-    margin: 1em auto;
+    margin: 0 auto;
 }

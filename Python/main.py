@@ -111,7 +111,7 @@ while running:
     screen.fill((255, 255, 255))
 
     font = pygame.font.SysFont("calibri", 16)
-    text = font.render(f'Interpolated render: {str(interpolate)} {str(UPDATES_PER_SECOND)} Updates/s Time between Updates: {str(round(TIME_BETWEEN_UPDATES*1000,2))}ms', True, (0, 0, 0))
+    text = font.render(f'Interpolated rendering: {str(interpolate)} {str(UPDATES_PER_SECOND)} Updates/s Time between Updates: {str(round(TIME_BETWEEN_UPDATES*1000,2))}ms', True, (0, 0, 0))
 
     screen.blit(text, (0, 0))
     for rectangle in Rectangles:

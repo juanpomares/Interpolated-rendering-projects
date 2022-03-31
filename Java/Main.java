@@ -151,7 +151,7 @@ public class Main extends KeyAdapter
     
     private String getStringUpdatesSecondLabel()
     {
-     	return ("Interpolated render: "+this.interpolatedRendering+" "+UpdatesPerSecond+" Updates/s Time between Updates: "+String.format("%.2f", timeBetweenUpdates)+"ms");
+     	return ("Interpolated rendering: "+this.interpolatedRendering+" "+UpdatesPerSecond+" Updates/s Time between Updates: "+String.format("%.2f", timeBetweenUpdates)+"ms");
         
     }
     
